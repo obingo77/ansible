@@ -1,0 +1,9 @@
+---
+- name: include role tasks
+  include_tasks: "{{ webserver_tasks }}"
+  loop:
+    - install.yml
+    - configure.yml
+  loop_control:
+    loop_var: webserver_tasks
+# tasks file for webserver

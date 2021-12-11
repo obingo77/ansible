@@ -1,0 +1,13 @@
+---
+- name: deploy a webserver
+  hosts: webserver
+  become: true
+  roles:
+    - webserver
+  
+  
+  - name: create webpage
+  template:
+    src: templates/index.html.j2
+    dest: /var/www/html/index.html
+  notify: restart httpd
